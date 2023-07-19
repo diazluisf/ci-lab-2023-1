@@ -8,9 +8,7 @@
 
 name: CI Lab 2023-1 
 
-on:
-  push:
-    branches: [ "main" ]
+on:push
 
 jobs:
   build:
