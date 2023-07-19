@@ -8,7 +8,7 @@
 
 name: CI Lab 2023-1 
 
-on:push
+on: push
 
 jobs:
   build:
