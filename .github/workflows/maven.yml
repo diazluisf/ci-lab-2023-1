@@ -26,7 +26,22 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-        server-id: github # Valor del distribuidor
+        server-id: github 
         settings-path: ${{ github.workspace }} #location for settings.xml
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B verify --file pom.xml
+  
+    - name: Create staging directory
+      run: mkdir staging && cp target/*.jar staging
+    
+    - name: Store artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Package
+        path: staging
+  
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -s .m2/settings.xml
+      env:
+         GITHUB_TOKEN: ${{ github.token }}
+      
