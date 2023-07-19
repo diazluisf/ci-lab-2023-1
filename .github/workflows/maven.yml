@@ -44,4 +44,5 @@ jobs:
       run: mvn deploy -s .m2/settings.xml
       env:
          GITHUB_TOKEN: ${{ secrets.token }}
+         USERNAME: ${{ secrets.USERNAME}}
       
