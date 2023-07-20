@@ -36,6 +36,6 @@ jobs:
         path: staging
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s .m2/settings.xml
+      run: mvn deploy -s .m2/settings.xml -X
       env:
          GITHUB_TOKEN: ${{ secrets.TOKEN }}
